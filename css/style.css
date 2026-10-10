@@ -43,11 +43,24 @@ main { flex: 1; }
 .product .stock.out { color: #c0392b; }
 .product button:disabled { background: #b8bfcc; cursor: not-allowed; }
 
+/* Lab 4: product detail page + "View details" link */
+.product .view-link { display: inline-block; margin-bottom: .75rem; color: #1f3864; font-size: .95rem; text-decoration: underline; }
+.product .view-link:hover { color: #0f2144; }
+.detail-card { background: #fff; border: 1px solid #dde3ee; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 6px rgba(0,0,0,.06); }
+.detail-card h2 { margin: 0 0 .75rem; color: #1f3864; }
+.detail-card p { margin-bottom: .6rem; }
+.detail-card .stock { font-weight: bold; }
+.detail-card .stock.in  { color: #1a7f37; }
+.detail-card .stock.low { color: #b7791f; }
+.detail-card .stock.out { color: #c0392b; }
+.detail-price { font-size: 1.4rem; font-weight: bold; color: #1f3864; }
+.back-link { display: inline-block; margin-top: .75rem; color: #1f3864; }
+
 /* Featured row on the home page: 3 items, so let them share the row */
 #featured-products { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 
 /* About page */
-.content { max-width: 760px; margin: 0 auto; padding: 2rem; }
+.content { width: 100%; max-width: 760px; margin: 0 auto; padding: 2rem; }
 .content h2 { margin: 1.25rem 0 .5rem; }
 .content ul { margin-left: 1.25rem; }
 
