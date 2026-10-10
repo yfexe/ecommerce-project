@@ -18,44 +18,26 @@
 
   <main>
     <h2 class="section-title">All products</h2>
-    <section class="product-grid">
-      <div class="product">
-        <img src="images/laptop.jpg" alt="Business Laptop">
-        <h3>Business Laptop</h3>
-        <p>AED 3,499</p>
-        <button>Add to Cart</button>
+
+    <section class="controls">
+      <input type="text" id="search-box" placeholder="Search products..." aria-label="Search products">
+
+      <div class="category-buttons">
+        <button class="category-btn active" data-category="All">All</button>
+        <button class="category-btn" data-category="Computers">Computers</button>
+        <button class="category-btn" data-category="Accessories">Accessories</button>
+        <button class="category-btn" data-category="Phones">Phones</button>
       </div>
-      <div class="product">
-        <img src="images/mouse.jpg" alt="Wireless Mouse">
-        <h3>Wireless Mouse</h3>
-        <p>AED 129</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="images/smartphone.jpg" alt="Smartphone X">
-        <h3>Smartphone X</h3>
-        <p>AED 2,499</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="images/headphones.jpg" alt="Noise-Cancelling Headphones">
-        <h3>Noise-Cancelling Headphones</h3>
-        <p>AED 599</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="images/keyboard.jpg" alt="Mechanical Keyboard">
-        <h3>Mechanical Keyboard</h3>
-        <p>AED 349</p>
-        <button>Add to Cart</button>
-      </div>
-      <div class="product">
-        <img src="images/monitor.jpg" alt="27-inch Monitor">
-        <h3>27-inch Monitor</h3>
-        <p>AED 1,199</p>
-        <button>Add to Cart</button>
-      </div>
+
+      <select id="sort-select" aria-label="Sort products">
+        <option value="default">Sort: Default</option>
+        <option value="low-high">Price: Low to High</option>
+        <option value="high-low">Price: High to Low</option>
+      </select>
     </section>
+
+    <p id="result-count" class="result-count"></p>
+    <div id="product-list" class="product-grid"></div>
   </main>
 
   <footer class="site-footer"><p>&copy; 2025 ShopNow.</p></footer>

@@ -26,6 +26,23 @@ main { flex: 1; }
 .product button { margin-top: auto; background: #1f3864; color: #fff; border: 0; padding: .55rem 1rem; border-radius: 6px; cursor: pointer; }
 .product button:hover { background: #2c4d8a; }
 
+/* Catalogue controls (Lab 2) */
+.controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; max-width: 1100px; margin: 1rem auto 0; padding: 0 2rem; }
+.controls input, .controls select { padding: .55rem .75rem; border: 1px solid #ccd3df; border-radius: 6px; font-size: 1rem; background: #fff; }
+.controls input { flex: 1 1 220px; min-width: 0; }
+.category-buttons { display: flex; flex-wrap: wrap; gap: .5rem; }
+.category-btn { background: #fff; color: #1f3864; border: 1px solid #1f3864; padding: .5rem 1rem; border-radius: 999px; cursor: pointer; font-size: .95rem; }
+.category-btn:hover { background: #e8eef8; }
+.category-btn.active { background: #1f3864; color: #fff; }
+.result-count { max-width: 1100px; margin: .75rem auto 0; padding: 0 2rem; color: #555; font-size: .9rem; }
+
+/* Stock indicators */
+.product .stock { font-size: .9rem; font-weight: bold; margin-bottom: .75rem; }
+.product .stock.in  { color: #1a7f37; }
+.product .stock.low { color: #b7791f; }
+.product .stock.out { color: #c0392b; }
+.product button:disabled { background: #b8bfcc; cursor: not-allowed; }
+
 /* Featured row on the home page: 3 items, so let them share the row */
 #featured-products { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 
@@ -47,5 +64,6 @@ main { flex: 1; }
   .product-grid, #featured-products { padding: 1rem; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .product { padding: .75rem; }
   .section-title { padding: 1.5rem 1rem 0; }
+  .controls, .result-count { padding: 0 1rem; }
   .content { padding: 1rem; }
 }
