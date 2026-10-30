@@ -1,14 +1,7 @@
 // ShopNow — app.js
 // Lab 2: search + category filter + price sort
 // Lab 4: products now come from the Supabase database instead of a hard-coded array
-
-// ---------- Helpers ----------
-// Stops text coming from the database from being treated as HTML.
-function escapeHTML(text) {
-  return String(text ?? "").replace(/[&<>"']/g, ch => (
-    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]
-  ));
-}
+// Lab 5: "Add to Cart" works (cart.js); escapeHTML and the Supabase client now live in cart.js / auth.js
 
 // ---------- Data (filled by loadProducts) ----------
 let products = [];
@@ -31,7 +24,7 @@ function renderProducts(list) {
         <p>AED ${prod.price.toLocaleString()}</p>
         <p class="stock ${stockClass}">${stockLabel}</p>
         <a class="view-link" href="product-detail.html?id=${prod.id}">View details</a>
-        <button ${prod.stock === 0 ? "disabled" : ""}>Add to Cart</button>
+        <button ${prod.stock === 0 ? "disabled" : ""} onclick="addToCartById(${prod.id}, this)">Add to Cart</button>
       </div>`;
   });
 }
@@ -62,13 +55,12 @@ async function loadProducts() {
     container.innerHTML = "<p>Supabase is not set up yet. Open js/config.js and paste your Project URL and anon key.</p>";
     return;
   }
-  if (!window.supabase) {
+  if (!supabaseClient) {
     container.innerHTML = "<p>The Supabase library did not load. Check the script tags in products.html (the CDN tag must come before js/app.js).</p>";
     return;
   }
 
   container.innerHTML = "<p>Loading products...</p>";
-  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const { data, error } = await supabaseClient
     .from("product")

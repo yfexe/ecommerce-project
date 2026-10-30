@@ -13,6 +13,8 @@
       <a href="index.html" class="active">Home</a>
       <a href="products.html">Products</a>
       <a href="about.html">About</a>
+      <a href="cart.html">Cart <span id="cart-count"></span></a>
+      <span id="auth-nav-slot"></span>
     </nav>
   </header>
 
@@ -29,24 +31,29 @@
         <img src="images/laptop.jpg" alt="Business Laptop">
         <h3>Business Laptop</h3>
         <p>AED 3,499</p>
-        <button>Add to Cart</button>
+        <button onclick="addToCartById(1, this)">Add to Cart</button>
       </div>
       <div class="product">
         <img src="images/smartphone.jpg" alt="Smartphone X">
         <h3>Smartphone X</h3>
         <p>AED 2,499</p>
-        <button>Add to Cart</button>
+        <button disabled>Out of Stock</button>
       </div>
       <div class="product">
         <img src="images/headphones.jpg" alt="Noise-Cancelling Headphones">
         <h3>Noise-Cancelling Headphones</h3>
         <p>AED 599</p>
-        <button>Add to Cart</button>
+        <button onclick="addToCartById(11, this)">Add to Cart</button>
       </div>
     </section>
   </main>
 
   <footer class="site-footer"><p>&copy; 2025 ShopNow.</p></footer>
+  <!-- Lab 4/5: Supabase library + keys first, then cart and auth, then the page script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

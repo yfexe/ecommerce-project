@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopNow — Register</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="logo">ShopNow</h1>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="cart.html">Cart <span id="cart-count"></span></a>
+      <span id="auth-nav-slot"></span>
+    </nav>
+  </header>
+
+  <main class="content auth-page">
+    <h2>Create Account</h2>
+
+    <form id="register-form" class="auth-form">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        required
+      >
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        required
+        minlength="6"
+      >
+
+      <button type="submit">Register</button>
+    </form>
+    <p id="form-message" class="form-message"></p>
+
+    <p>
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+  </main>
+
+  <footer class="site-footer"><p>&copy; 2025 ShopNow.</p></footer>
+  <!-- Lab 5: Supabase library + keys first, then cart and auth -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

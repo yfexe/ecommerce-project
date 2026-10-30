@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopNow — Cart</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="logo">ShopNow</h1>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="cart.html" class="active">Cart <span id="cart-count"></span></a>
+      <span id="auth-nav-slot"></span>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h2>Shopping Cart</h2>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <h3 class="cart-subtotal">
+      Subtotal: AED <span id="subtotal">0.00</span>
+    </h3>
+  </main>
+
+  <footer class="site-footer"><p>&copy; 2025 ShopNow.</p></footer>
+  <!-- Lab 5: Supabase library + keys first, then cart and auth -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Lab 5, Step 3 + Step 7: draw the cart, and send logged-out visitors to login.html
+    renderCart();
+    requireLogin();
+  </script>
+</body>
+</html>

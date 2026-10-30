@@ -13,6 +13,8 @@
       <a href="index.html">Home</a>
       <a href="products.html" class="active">Products</a>
       <a href="about.html">About</a>
+      <a href="cart.html">Cart <span id="cart-count"></span></a>
+      <span id="auth-nav-slot"></span>
     </nav>
   </header>
 
@@ -41,9 +43,11 @@
   </main>
 
   <footer class="site-footer"><p>&copy; 2025 ShopNow.</p></footer>
-  <!-- Lab 4: Supabase library and keys must load BEFORE app.js -->
+  <!-- Lab 4/5: Supabase library + keys first, then cart and auth, then the page script -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/config.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,11 +1,6 @@
 // ShopNow — product-detail.js (Lab 4, Step 5)
 // Reads ?id=... from the URL and shows that one product from Supabase.
-
-function escapeHTML(text) {
-  return String(text ?? "").replace(/[&<>"']/g, ch => (
-    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]
-  ));
-}
+// Lab 5: escapeHTML and the shared supabaseClient come from cart.js / auth.js
 
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
@@ -21,13 +16,12 @@ async function loadProduct() {
     detailBox.innerHTML = "<p>Supabase is not set up yet. Open js/config.js and paste your Project URL and anon key.</p>";
     return;
   }
-  if (!window.supabase) {
+  if (!supabaseClient) {
     detailBox.innerHTML = "<p>The Supabase library did not load. Check the script tags in product-detail.html.</p>";
     return;
   }
 
   detailBox.innerHTML = "<p>Loading...</p>";
-  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   const { data: product, error } = await supabaseClient
     .from("product")
@@ -58,6 +52,7 @@ async function loadProduct() {
       <p class="detail-price">AED ${Number(product.price).toLocaleString()}</p>
       <p>Category: ${escapeHTML(categoryName)}</p>
       <p class="stock ${stockClass}">${stockLabel}</p>
+      <button class="detail-add" ${product.stock === 0 ? "disabled" : ""} onclick="addToCartById(${product.product_id}, this)">Add to Cart</button>
       <a class="back-link" href="products.html">&larr; Back to products</a>
     </div>`;
 }
